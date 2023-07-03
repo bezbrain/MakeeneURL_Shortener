@@ -1,0 +1,76 @@
+/* =============== */
+/* Header Section */
+.header-and-hero {
+  max-width: var(--sectionWidth);
+  margin: 20px auto;
+  padding-inline: var(--sectionPadding);
+}
+
+.top-header {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-con {
+  width: fit-content;
+  padding-top: 5px;
+  background-color: var(--blueFamily);
+}
+
+.logo-con img {
+  width: 120px;
+}
+
+.top-header nav {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul:first-child {
+  /* border: 2px solid green; */
+  width: 50%;
+}
+nav ul:last-child {
+  /* border: 2px solid yellow; */
+  width: 30%;
+}
+
+nav ul li {
+  list-style-type: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+nav ul li:hover {
+  border-bottom: 2px solid var(--blueFamily);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--blueFamily);
+}
+
+nav ul:last-child li:last-child {
+  border-bottom: none;
+}
+
+nav ul li button {
+  background-color: var(--blueFamily);
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: ease 0.5s all;
+}
+nav ul li button:hover {
+  opacity: 0.8;
+}
