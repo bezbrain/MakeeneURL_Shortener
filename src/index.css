@@ -31,31 +31,9 @@
   --sectionPadding: 30px;
 
   /* Section Width */
-  --sectionWidth: 1100px;
+  --sectionWidth: 1300px;
 }
 
 body {
   font-size: var(--generalText);
 }
-
-/* .logo-con {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.the-logo {
-  text-align: center;
-  line-height: 0.6cm;
-}
-
-.the-logo h1 {
-  color: var(--blueFamily);
-  text-shadow: 3px 3px var(--lightBlue);
-}
-
-.the-logo h3 {
-  color: var(--lightBlue);
-  text-shadow: 2px 2px var(--blueFamily);
-} */

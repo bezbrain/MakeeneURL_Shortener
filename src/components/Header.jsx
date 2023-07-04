@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useGlobalContext } from "../context";
+import LogoDesign from "./LogoDesign";
 
 const Header = () => {
   const { toggleNav, setToggleNav } = useGlobalContext();
@@ -12,7 +13,7 @@ const Header = () => {
   return (
     <header className="top-header">
       <div className="logo-con">
-        <img src="../../Images/Logo_Design.png" alt="Logo" />
+        <LogoDesign />
       </div>
       <FontAwesomeIcon
         icon={faBars}

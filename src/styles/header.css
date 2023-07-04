@@ -1,27 +1,51 @@
-/* =============== */
-/* Header Section */
 .top-header {
-  /* border: 2px solid red; */
-  max-width: var(--sectionWidth);
-  margin: 20px auto;
-  padding-inline: var(--sectionPadding);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  height: 60px;
+  /* width: var(--sectionWidth); */
+  width: 100%;
+  margin: 0px auto;
+  padding-inline: 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--grey);
+  z-index: 9999;
 }
 
 .logo-con {
   width: fit-content;
-  padding-top: 5px;
+  z-index: 9999;
   /* background-color: var(--blueFamily); */
 }
 
-.logo-con img {
-  width: 120px;
+.the-logo {
+  /* border: 2px solid red; */
+  text-align: center;
+  line-height: 0.5cm;
 }
+
+.the-logo h1 {
+  font-size: 30px;
+  color: var(--blueFamily);
+  text-shadow: 3px 2px #000;
+}
+
+.the-logo h3 {
+  font-size: 20px;
+  color: var(--lightBlue);
+  text-shadow: 3px 2px #000;
+}
+
 @media screen and (max-width: 920px) {
-  .logo-con img {
-    width: 100px;
+  .the-logo h1 {
+    font-size: 25px;
+  }
+
+  .the-logo h3 {
+    font-size: 15px;
   }
 }
 
@@ -35,6 +59,7 @@
   display: flex;
   justify-content: space-between;
   width: 70%;
+  margin-left: auto;
 }
 
 nav ul {
@@ -82,13 +107,30 @@ nav ul li button:hover {
   opacity: 0.8;
 }
 
+@media screen and (min-width: 1300px) {
+  nav ul:nth-child(2) {
+    /* border: 2px solid red; */
+    width: 40%;
+  }
+
+  nav ul:last-child {
+    /* border: 2px solid red; */
+    width: 20%;
+  }
+}
+
 @media screen and (max-width: 920px) {
+  .logo-con {
+    margin-top: 10px;
+  }
+
   .open-nav,
   .close-nav {
     display: block;
     right: 30px;
     top: 20px;
     font-size: 30px;
+    cursor: pointer;
   }
 
   .open-nav {
@@ -104,12 +146,11 @@ nav ul li button:hover {
     right: -400px;
     top: 0;
     height: 100vh;
-    /* background-color: var(--blueFamily); */
     background: linear-gradient(to bottom, var(--blueFamily), #000000);
     flex-direction: column;
     width: 300px;
     justify-content: flex-start;
-    transition: ease 1s all;
+    transition: ease 0.5s all;
   }
   .add-nav-css {
     right: 0 !important;
@@ -123,7 +164,7 @@ nav ul li button:hover {
   nav ul:nth-child(2) {
     /* border: 2px solid green; */
     align-items: flex-start;
-    margin-top: 4rem;
+    margin-top: 6rem;
     margin-left: 30px;
     width: 100%;
     line-height: 1.5cm;
@@ -152,5 +193,15 @@ nav ul li button:hover {
     background-color: #fff;
     color: var(--blueFamily);
     font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .top-header nav {
+    right: -690px;
+    width: 100%;
+  }
+  .add-nav-css {
+    right: 0 !important;
   }
 }
