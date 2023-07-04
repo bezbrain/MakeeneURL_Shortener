@@ -98,7 +98,6 @@ nav ul:last-child li:last-child {
 
 nav ul li button {
   background-color: var(--blueFamily);
-  color: #fff;
   border: none;
   padding: 8px 20px;
   border-radius: 20px;
@@ -106,6 +105,10 @@ nav ul li button {
 }
 nav ul li button:hover {
   opacity: 0.8;
+}
+
+nav ul li button a {
+  color: #fff;
 }
 
 @media screen and (min-width: 1300px) {

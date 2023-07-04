@@ -8,6 +8,7 @@
   text-align: center;
   color: var(--blueFamily);
   text-shadow: 2px 2px #000;
+  padding-inline: 20px;
 }
 
 .contact-us form {
@@ -17,13 +18,13 @@
   padding: 50px 20px;
   background: linear-gradient(to bottom, var(--grey), #fff);
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 550px) {
   .contact-us h2 {
     line-height: 0.7cm;
   }
 
   .contact-us form {
-    width: 300px;
+    width: 320px;
   }
 }
 

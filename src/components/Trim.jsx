@@ -2,8 +2,8 @@ import "../styles/trim.css";
 
 const Trim = () => {
   return (
-    <main className="trim">
-      <form>
+    <main className="trim" id="get-url">
+      <form id="try-for-free">
         <input type="text" placeholder="Paste original URL here" />
         <div className="change-act">
           <select name="" id="">

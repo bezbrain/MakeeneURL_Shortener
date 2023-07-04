@@ -1,7 +1,7 @@
 .trim {
   /* border: 2px solid red; */
   margin-bottom: 5rem;
-  padding-block: 3rem;
+  padding-block: 6rem;
   background: linear-gradient(to bottom, var(--blueFamily), #000);
 }
 
@@ -13,7 +13,7 @@
   padding: 20px;
   background-color: #fff;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .trim form {
     width: 320px;
   }

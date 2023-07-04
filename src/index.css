@@ -17,6 +17,8 @@
   margin: 0;
   box-sizing: border-box;
 
+  scroll-behavior: smooth;
+
   /* Colors */
   --lightBlue: #77f2ff;
   --blueFamily: #3e65ce;

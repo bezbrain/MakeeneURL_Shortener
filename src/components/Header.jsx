@@ -6,9 +6,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useGlobalContext } from "../context";
 import LogoDesign from "./LogoDesign";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { toggleNav, setToggleNav } = useGlobalContext();
+  const navigate = useNavigate();
 
   return (
     <header className="top-header">
@@ -28,19 +30,25 @@ const Header = () => {
         />
         <ul>
           <li>
-            <Link>My URLs</Link>
+            <Link to="/myurls" onClick={() => setToggleNav(false)}>
+              My URLs
+            </Link>
           </li>
-          <li>Get URL</li>
+          <li onClick={() => navigate("/")}>
+            <a href="#get-url">Get URL</a>
+          </li>
           <li>
-            <Link>How it Works</Link>
+            <Link to="/how-it-works">How it Works</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <Link>Log in</Link>
+            <Link to="/login">Log in</Link>
           </li>
           <li>
-            <button>Try for free</button>
+            <button>
+              <a href="#try-for-free">Try for free</a>
+            </button>
           </li>
         </ul>
       </nav>

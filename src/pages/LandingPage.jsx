@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import HeroSection from "../components/HeroSection";
-import Header from "../components/Header";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Trim from "../components/Trim";
 import ContactUs from "../components/ContactUs";
@@ -18,7 +17,7 @@ const LandingPage = () => {
       <WhyChooseUs />
       <Trim />
       <ContactUs />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
