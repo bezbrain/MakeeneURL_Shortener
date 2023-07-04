@@ -1,13 +1,30 @@
 import { Link } from "react-router-dom";
 import "../styles/header.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useGlobalContext } from "../context";
+
 const Header = () => {
+  const { toggleNav, setToggleNav } = useGlobalContext();
+
   return (
     <header className="top-header">
       <div className="logo-con">
         <img src="../../Images/Logo_Design.png" alt="Logo" />
       </div>
-      <nav>
+      <FontAwesomeIcon
+        icon={faBars}
+        className="open-nav"
+        onClick={() => setToggleNav(true)}
+      />
+      <nav className={`${toggleNav ? "add-nav-css" : ""}`}>
+        <FontAwesomeIcon
+          icon={faTimes}
+          className="close-nav"
+          onClick={() => setToggleNav(false)}
+        />
         <ul>
           <li>
             <Link>My URLs</Link>

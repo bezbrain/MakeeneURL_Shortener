@@ -19,6 +19,16 @@
 .logo-con img {
   width: 120px;
 }
+@media screen and (max-width: 920px) {
+  .logo-con img {
+    width: 100px;
+  }
+}
+
+.open-nav,
+.close-nav {
+  display: none;
+}
 
 .top-header nav {
   /* border: 2px solid red; */
@@ -33,7 +43,7 @@ nav ul {
   align-items: center;
 }
 
-nav ul:first-child {
+nav ul:nth-child(2) {
   /* border: 2px solid green; */
   width: 50%;
 }
@@ -70,4 +80,77 @@ nav ul li button {
 }
 nav ul li button:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 920px) {
+  .open-nav,
+  .close-nav {
+    display: block;
+    right: 30px;
+    top: 20px;
+    font-size: 30px;
+  }
+
+  .open-nav {
+    position: fixed;
+  }
+
+  .close-nav {
+    position: absolute;
+  }
+
+  .top-header nav {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    height: 100vh;
+    /* background-color: var(--blueFamily); */
+    background: linear-gradient(to bottom, var(--blueFamily), #000000);
+    flex-direction: column;
+    width: 300px;
+    justify-content: flex-start;
+    transition: ease 1s all;
+  }
+  .add-nav-css {
+    right: 0 !important;
+  }
+
+  nav ul {
+    /* border: 2px solid red; */
+    flex-direction: column;
+  }
+
+  nav ul:nth-child(2) {
+    /* border: 2px solid green; */
+    align-items: flex-start;
+    margin-top: 4rem;
+    margin-left: 30px;
+    width: 100%;
+    line-height: 1.5cm;
+  }
+  nav ul:last-child {
+    /* border: 2px solid red; */
+    width: 100%;
+    margin-top: 2rem;
+    line-height: 1cm;
+  }
+
+  nav ul li {
+    transition: ease 0.5s all;
+  }
+
+  nav ul li:hover {
+    border-bottom: none;
+    padding-left: 10px;
+  }
+
+  nav ul li a {
+    color: #fff;
+  }
+
+  nav ul li button {
+    background-color: #fff;
+    color: var(--blueFamily);
+    font-weight: 700;
+  }
 }
