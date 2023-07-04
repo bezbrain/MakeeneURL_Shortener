@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import Header from "../components/Header";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Trim from "../components/Trim";
+import ContactUs from "../components/ContactUs";
 
 const LandingPage = () => {
   return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
       </main>
       <WhyChooseUs />
       <Trim />
+      <ContactUs />
     </>
   );
 };

@@ -1,0 +1,133 @@
+.contact-us {
+  max-width: var(--sectionWidth);
+  margin: 0 auto 5rem;
+  padding-inline: var(--sectionPadding);
+}
+
+.contact-us h2 {
+  text-align: center;
+  color: var(--blueFamily);
+  text-shadow: 2px 2px #000;
+}
+
+.contact-us form {
+  /* border: 2px solid red; */
+  width: 500px;
+  margin: 40px auto;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, var(--grey), #fff);
+}
+@media screen and (max-width: 680px) {
+  .contact-us h2 {
+    line-height: 0.7cm;
+  }
+
+  .contact-us form {
+    width: 350px;
+  }
+}
+
+.name-and-email-con {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-and-email-con input {
+  border: none;
+  border-bottom: 2px solid var(--blueFamily);
+  width: 48%;
+  height: 3.2rem;
+  padding-left: 5px;
+}
+.name-and-email-con input:focus {
+  outline: none;
+  border-bottom: 4px solid var(--blueFamily);
+}
+@media screen and (max-width: 680px) {
+  .name-and-email-con {
+    flex-direction: column;
+  }
+  .name-and-email-con input {
+    width: 100%;
+    height: 40px;
+  }
+  .name-and-email-con input:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+.contact-us form .subject-and-msg-con input,
+.contact-us form textarea {
+  margin-top: 3rem;
+  border: none;
+  border-bottom: 2px solid var(--blueFamily);
+  width: 100%;
+  height: 4rem;
+  padding-left: 5px;
+}
+.contact-us form .subject-and-msg-con input:focus,
+.contact-us form textarea:focus {
+  outline: none;
+  border-bottom: 4px solid var(--blueFamily);
+}
+@media screen and (max-width: 680px) {
+  .contact-us form .subject-and-msg-con input,
+  .contact-us form textarea {
+    margin-top: 2rem;
+    height: 3rem;
+  }
+}
+
+.contact-us form textarea {
+  resize: none;
+  height: 7rem;
+  padding-top: 5px;
+}
+@media screen and (max-width: 680px) {
+  .contact-us form textarea {
+    height: 5rem;
+  }
+}
+/* Chrome, Edge and safari customized scrollbar */
+.contact-us form textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.contact-us form textarea::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+.contact-us form textarea::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid gray;
+}
+/* Chrome, Edge and Safari customized scrollbar */
+
+.send-message {
+  margin: 20px 10px 20px;
+  border: 2px solid #000;
+  background-color: inherit;
+  color: #000;
+  padding: 10px 50px;
+  font-size: 16px;
+  border-radius: 30px;
+}
+
+.send-message:hover {
+  animation: sendMessage ease-in-out 0.5s infinite;
+}
+@keyframes sendMessage {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0px 0px 4px 4px rgba(37, 37, 37, 0.2);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .send-message {
+    padding: 8px 30px;
+  }
+}
