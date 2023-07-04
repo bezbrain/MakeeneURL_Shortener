@@ -34,19 +34,29 @@ const Header = () => {
               My URLs
             </Link>
           </li>
-          <li onClick={() => navigate("/")}>
+          <li
+            onClick={() => {
+              navigate("/");
+              setToggleNav(false);
+            }}
+          >
             <a href="#get-url">Get URL</a>
           </li>
-          <li>
+          <li onClick={() => setToggleNav(false)}>
             <Link to="/how-it-works">How it Works</Link>
           </li>
         </ul>
         <ul>
-          <li>
+          <li onClick={() => setToggleNav(false)}>
             <Link to="/login">Log in</Link>
           </li>
           <li>
-            <button>
+            <button
+              onClick={() => {
+                navigate("/");
+                setToggleNav(false);
+              }}
+            >
               <a href="#try-for-free">Try for free</a>
             </button>
           </li>

@@ -195,8 +195,11 @@ nav ul li button a {
 
   nav ul li button {
     background-color: #fff;
-    color: var(--blueFamily);
     font-weight: 700;
+  }
+
+  nav ul li button a {
+    color: var(--blueFamily);
   }
 }
 
