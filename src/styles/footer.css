@@ -52,3 +52,12 @@
   margin-right: 10px;
   padding-right: 10px;
 }
+@media screen and (max-width: 500px) {
+  .terms-con {
+    font-size: 10px;
+  }
+  .terms-con p:not(:last-child) {
+    margin-right: 5px;
+    padding-right: 5px;
+  }
+}

@@ -8,10 +8,15 @@
 .trim form {
   /* border: 2px solid green; */
   border-radius: 5px;
-  width: 350px;
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .trim form {
+    width: 320px;
+  }
 }
 
 .trim form > input {

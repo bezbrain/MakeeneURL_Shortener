@@ -1,7 +1,7 @@
 .contact-us {
   max-width: var(--sectionWidth);
   margin: 0 auto 5rem;
-  padding-inline: var(--sectionPadding);
+  /* padding-inline: var(--sectionPadding); */
 }
 
 .contact-us h2 {
@@ -23,7 +23,7 @@
   }
 
   .contact-us form {
-    width: 350px;
+    width: 300px;
   }
 }
 
