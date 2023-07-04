@@ -1,13 +1,10 @@
 /* =============== */
 /* Header Section */
-.header-and-hero {
+.top-header {
+  /* border: 2px solid red; */
   max-width: var(--sectionWidth);
   margin: 20px auto;
   padding-inline: var(--sectionPadding);
-}
-
-.top-header {
-  /* border: 2px solid red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +13,7 @@
 .logo-con {
   width: fit-content;
   padding-top: 5px;
-  background-color: var(--blueFamily);
+  /* background-color: var(--blueFamily); */
 }
 
 .logo-con img {

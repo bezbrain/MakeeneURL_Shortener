@@ -18,11 +18,11 @@
   box-sizing: border-box;
 
   /* Colors */
-  --orangeFamily: #bf8339;
+  --lightBlue: #77f2ff;
   --blueFamily: #3e65ce;
-  --lightOrange: #d9ac84;
-  --lightRed: #d99177;
-  --lightBrown: #a65f46;
+  --grey: #858d99;
+  --orange: #ff8658;
+  --lightBrown: #cc5948;
 
   /* Fonts */
   --mainHeader: 2rem;
@@ -37,3 +37,25 @@
 body {
   font-size: var(--generalText);
 }
+
+/* .logo-con {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.the-logo {
+  text-align: center;
+  line-height: 0.6cm;
+}
+
+.the-logo h1 {
+  color: var(--blueFamily);
+  text-shadow: 3px 3px var(--lightBlue);
+}
+
+.the-logo h3 {
+  color: var(--lightBlue);
+  text-shadow: 2px 2px var(--blueFamily);
+} */
