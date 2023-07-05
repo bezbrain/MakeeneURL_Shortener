@@ -150,6 +150,8 @@ nav ul li button a {
     right: -400px;
     top: 0;
     height: 100vh;
+    transform-origin: bottom right; /* Unique Nav bar */
+    transform: skewY(90deg); /* Unique Nav bar */
     background: linear-gradient(to bottom, var(--blueFamily), #000000);
     flex-direction: column;
     width: 300px;
@@ -158,6 +160,7 @@ nav ul li button a {
   }
   .add-nav-css {
     right: 0 !important;
+    transform: skewY(180deg) !important; /* Unique Nav bar */
   }
 
   nav ul {

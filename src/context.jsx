@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const AppContext = React.createContext();
 
@@ -22,13 +23,24 @@ export const AppProvider = ({ children }) => {
   const db = getFirestore();
   const colRef = collection(db, "login");
 
+  const auth = getAuth();
+
   const [toggleNav, setToggleNav] = useState(false);
   const [toggleModal, setToggleModal] = useState(false);
   const [showRegLogin, setShowRegLogin] = useState(false);
 
+  // Register States
+  const [regName, setRegName] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+
   // Login States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Success Message
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFailure, setIsFailure] = useState(false);
 
   return (
     <AppContext.Provider
@@ -43,6 +55,18 @@ export const AppProvider = ({ children }) => {
         setEmail,
         password,
         setPassword,
+        regName,
+        setRegName,
+        regEmail,
+        setRegEmail,
+        regPassword,
+        setRegPassword,
+        createUserWithEmailAndPassword,
+        auth,
+        isSuccess,
+        setIsSuccess,
+        isFailure,
+        setIsFailure,
       }}
     >
       {children}

@@ -1,9 +1,52 @@
 import "../styles/reglogin.css";
 import { FaTimes } from "react-icons/fa";
 import { useGlobalContext } from "../context";
+import Message from "./Message";
 
 const Register = () => {
-  const { setToggleModal, setShowRegLogin } = useGlobalContext();
+  const {
+    setToggleModal,
+    setShowRegLogin,
+    regName,
+    setRegName,
+    regEmail,
+    setRegEmail,
+    regPassword,
+    setRegPassword,
+    createUserWithEmailAndPassword,
+    auth,
+    isSuccess,
+    setIsSuccess,
+    setIsFailure,
+  } = useGlobalContext();
+
+  const handleRegisterBtn = async (e) => {
+    e.preventDefault();
+    if (!regName || !regEmail || !regPassword) {
+      console.log("I cannot be empty");
+      setIsFailure(true);
+      setIsSuccess(false);
+      setTimeout(() => {
+        setIsFailure(false);
+      }, 3000);
+    } else {
+      try {
+        await createUserWithEmailAndPassword(auth, regEmail, regPassword);
+        setIsSuccess(true);
+        setTimeout(() => {
+          setShowRegLogin(false); //Go to login form
+        }, 3000);
+        setRegName("");
+        setRegEmail("");
+        setRegPassword("");
+        setTimeout(() => {
+          setIsSuccess(false); //Remove success message
+        }, 5000);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+  };
 
   return (
     <>
@@ -14,14 +57,33 @@ const Register = () => {
         />
         <form>
           <h2>Register</h2>
-          <p>Error/Success Message</p>
-          <input type="text" placeholder="Username" />
+          {isSuccess ? (
+            <Message message="Registeration Successful" />
+          ) : (
+            <Message message="No field should be empty" />
+          )}
+          <input
+            type="text"
+            placeholder="Username"
+            value={regName}
+            onChange={(e) => setRegName(e.target.value)}
+          />
           <br />
-          <input type="email" placeholder="Email Address" />
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={regEmail}
+            onChange={(e) => setRegEmail(e.target.value)}
+          />
           <br />
-          <input type="password" placeholder="Password" />
+          <input
+            type="password"
+            placeholder="Password"
+            value={regPassword}
+            onChange={(e) => setRegPassword(e.target.value)}
+          />
           <br />
-          <button>Register</button>
+          <button onClick={handleRegisterBtn}>Register</button>
           <div className="have-acc-con">
             <p>Have an account?</p>
             <p onClick={() => setShowRegLogin(false)}>Sign in</p>
