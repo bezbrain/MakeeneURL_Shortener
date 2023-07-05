@@ -59,6 +59,11 @@
   opacity: 0.7;
   text-decoration: underline;
 }
+@media screen and (max-width: 500px) {
+  .hero-section a {
+    font-size: 15px;
+  }
+}
 
 .hero-img-con {
   /* border: 2px solid red; */
