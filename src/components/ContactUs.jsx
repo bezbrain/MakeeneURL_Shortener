@@ -13,8 +13,8 @@ const ContactUs = () => {
           <input type="text" placeholder="Subject" />
           <br />
           <textarea
-            name=""
-            id=""
+            name="message"
+            id="message"
             cols="30"
             rows="10"
             placeholder="Message"

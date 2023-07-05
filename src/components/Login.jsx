@@ -1,6 +1,8 @@
 import { useGlobalContext } from "../context";
 import "../styles/reglogin.css";
 import { FaTimes } from "react-icons/fa";
+import Message from "./Message";
+import { useEffect } from "react";
 
 const Login = () => {
   const {
@@ -10,7 +12,55 @@ const Login = () => {
     setEmail,
     password,
     setPassword,
+    signInWithEmailAndPassword,
+    auth,
+    isSuccess,
+    setIsSuccess,
+    setIsFailure,
+    setMsgFromServer,
+    extratingErrorMsg,
+    setIsLogged,
   } = useGlobalContext();
+
+  const handleLoginBtn = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      // console.log("Input empty");
+      setIsFailure(true);
+      setIsSuccess(false);
+      setTimeout(() => {
+        setIsFailure(false);
+      }, 3000);
+    } else {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+
+        // Store the authentication token in local storage
+        const userToken = await auth.currentUser.getIdToken();
+        // console.log(userToken);
+        localStorage.setItem("authToken", userToken);
+
+        setIsSuccess(true);
+        setTimeout(() => {
+          setShowRegLogin(false); //Go to login form
+        }, 3000);
+        setEmail("");
+        setPassword("");
+        setTimeout(() => {
+          setIsSuccess(false); //Remove success message
+          setToggleModal(false); //Remove modal
+        }, 3000);
+        setIsLogged("Logout");
+      } catch (error) {
+        console.log(error.message);
+        setMsgFromServer(extratingErrorMsg(error.message));
+        setTimeout(() => {
+          setMsgFromServer("");
+        }, 3000);
+      }
+    }
+  };
+
   return (
     <>
       <main className="login">
@@ -20,7 +70,11 @@ const Login = () => {
         />
         <form>
           <h2>Login</h2>
-          <p>Error/Success Message</p>
+          {isSuccess ? (
+            <Message message="Logging in..." />
+          ) : (
+            <Message message="No field should be empty" />
+          )}
           <input
             type="email"
             placeholder="Email Address"
@@ -35,7 +89,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-          <button>Login</button>
+          <button onClick={handleLoginBtn}>Login</button>
           <div className="dont-have-acc-con">
             <p>Don't have an account?</p>
             <p onClick={() => setShowRegLogin(true)}>Sign up</p>

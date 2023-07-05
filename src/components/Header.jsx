@@ -9,9 +9,33 @@ import LogoDesign from "./LogoDesign";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { toggleNav, setToggleNav, setShowRegLogin, setToggleModal } =
-    useGlobalContext();
+  const {
+    toggleNav,
+    setToggleNav,
+    setShowRegLogin,
+    setToggleModal,
+    isLogged,
+    loginLogoutContentRef,
+    signOut,
+    auth,
+    setIsLogged,
+  } = useGlobalContext();
   const navigate = useNavigate();
+
+  const handleLoginLogout = async () => {
+    if (loginLogoutContentRef.current.textContent === "Log in") {
+      setShowRegLogin(false);
+      setToggleNav(false);
+      setToggleModal(true);
+    } else {
+      await signOut(auth);
+
+      // Clear the authentication token from local storage
+      localStorage.removeItem("authToken");
+
+      setIsLogged("Log in");
+    }
+  };
 
   return (
     <header className="top-header">
@@ -48,14 +72,8 @@ const Header = () => {
           </li>
         </ul>
         <ul>
-          <li
-            onClick={() => {
-              setShowRegLogin(false);
-              setToggleNav(false);
-              setToggleModal(true);
-            }}
-          >
-            <Link>Log in</Link>
+          <li ref={loginLogoutContentRef} onClick={handleLoginLogout}>
+            <Link>{isLogged}</Link>
           </li>
           <li>
             <button

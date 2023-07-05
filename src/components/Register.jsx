@@ -18,12 +18,15 @@ const Register = () => {
     isSuccess,
     setIsSuccess,
     setIsFailure,
+    msgFromServer,
+    setMsgFromServer,
+    extratingErrorMsg,
   } = useGlobalContext();
 
   const handleRegisterBtn = async (e) => {
     e.preventDefault();
     if (!regName || !regEmail || !regPassword) {
-      console.log("I cannot be empty");
+      //   console.log("I cannot be empty");
       setIsFailure(true);
       setIsSuccess(false);
       setTimeout(() => {
@@ -35,15 +38,19 @@ const Register = () => {
         setIsSuccess(true);
         setTimeout(() => {
           setShowRegLogin(false); //Go to login form
-        }, 3000);
+        }, 4000);
         setRegName("");
         setRegEmail("");
         setRegPassword("");
         setTimeout(() => {
           setIsSuccess(false); //Remove success message
-        }, 5000);
+        }, 4000);
       } catch (error) {
         console.log(error.message);
+        setMsgFromServer(extratingErrorMsg(error.message));
+        setTimeout(() => {
+          setMsgFromServer("");
+        }, 3000);
       }
     }
   };
@@ -58,7 +65,7 @@ const Register = () => {
         <form>
           <h2>Register</h2>
           {isSuccess ? (
-            <Message message="Registeration Successful" />
+            <Message message="Registration Successful" />
           ) : (
             <Message message="No field should be empty" />
           )}

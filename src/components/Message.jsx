@@ -2,7 +2,8 @@ import { useGlobalContext } from "../context";
 import "../styles/reglogin.css";
 
 const Message = ({ message }) => {
-  const { isSuccess, isFailure } = useGlobalContext();
+  const { isSuccess, isFailure, msgFromServer, setMsgFromServer } =
+    useGlobalContext();
 
   return (
     <>
@@ -12,6 +13,7 @@ const Message = ({ message }) => {
       {isFailure && (
         <p className={`${isFailure ? "add-failure-message" : ""}`}>{message}</p>
       )}
+      {msgFromServer && <p className="add-failure-message">{msgFromServer}</p>}
     </>
   );
 };
