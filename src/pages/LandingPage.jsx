@@ -4,6 +4,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Trim from "../components/Trim";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
+import RegLogin from "./RegLogin";
 
 const LandingPage = () => {
   return (
@@ -17,7 +18,7 @@ const LandingPage = () => {
       <WhyChooseUs />
       <Trim />
       <ContactUs />
-      {/* <Footer /> */}
+      <RegLogin />
     </>
   );
 };

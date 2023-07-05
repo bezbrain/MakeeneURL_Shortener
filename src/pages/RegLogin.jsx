@@ -1,18 +1,20 @@
-import React from "react";
+import Login from "../components/Login";
+import Register from "../components/Register";
+import { useGlobalContext } from "../context";
+import "../styles/reglogin.css";
 
 const RegLogin = () => {
+  const { toggleModal, showRegLogin } = useGlobalContext();
+
   return (
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-        quod expedita sapiente et sed eius perspiciatis labore ex itaque maiores
-        ducimus beatae obcaecati nobis aliquam tempore pariatur, quo
-        necessitatibus eos laudantium. Assumenda modi laboriosam voluptates
-        ipsum animi incidunt, blanditiis aperiam mollitia dignissimos
-        temporibus, quae aspernatur nulla. Tempore dolorem voluptas quia!
-      </p>
-      <h2>RegLogin</h2>
-    </div>
+    <main
+      className={`reg-and-login ${
+        toggleModal ? "add-modal-css" : "initial-modal-css"
+      }`}
+    >
+      {!showRegLogin && <Login />}
+      {showRegLogin && <Register />}
+    </main>
   );
 };
 
