@@ -9,7 +9,7 @@ import LogoDesign from "./LogoDesign";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { toggleNav, setToggleNav, toggleModal, setToggleModal } =
+  const { toggleNav, setToggleNav, setShowRegLogin, setToggleModal } =
     useGlobalContext();
   const navigate = useNavigate();
 
@@ -50,6 +50,7 @@ const Header = () => {
         <ul>
           <li
             onClick={() => {
+              setShowRegLogin(false);
               setToggleNav(false);
               setToggleModal(true);
             }}

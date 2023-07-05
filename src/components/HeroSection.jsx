@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "../styles/hero.css";
+import { useGlobalContext } from "../context";
 
 const HeroSection = () => {
+  const { setToggleModal, setShowRegLogin } = useGlobalContext();
   return (
     <main className="hero-section">
       <div className="header-intro">
@@ -14,8 +16,15 @@ const HeroSection = () => {
         Personalize and customize URLs to your preferred and most simple
         combination of characters, to enhance more user experience.
       </p>
-      <button>Sign Up</button>
-      <Link>Learn More</Link>
+      <button
+        onClick={() => {
+          setShowRegLogin(true);
+          setToggleModal(true);
+        }}
+      >
+        Sign Up
+      </button>
+      <Link to="/how-it-works">Learn More</Link>
     </main>
   );
 };

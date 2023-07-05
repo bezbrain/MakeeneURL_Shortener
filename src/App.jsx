@@ -4,7 +4,6 @@ import SharedLayout from "./pages/SharedLayout";
 import MyURLs from "./pages/MyURLs";
 import HowItWorks from "./pages/HowItWorks";
 import Error from "./pages/Error";
-import RegLogin from "./pages/RegLogin";
 
 const App = () => {
   return (
