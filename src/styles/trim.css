@@ -73,8 +73,13 @@
 
 .trim form > p {
   margin-top: 15px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 0.5cm;
   color: var(--blueFamily);
   font-weight: 500;
+}
+@media screen and (max-width: 500px) {
+  .trim form > p {
+    font-size: 12px;
+  }
 }
