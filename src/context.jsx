@@ -1,7 +1,12 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getFirestore,
+  addDoc,
+  onSnapshot,
+} from "firebase/firestore";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -27,7 +32,7 @@ export const AppProvider = ({ children }) => {
   initializeApp(firebaseConfig);
 
   const db = getFirestore();
-  const colRef = collection(db, "login");
+  const colRef = collection(db, "url");
 
   const auth = getAuth();
 
@@ -63,6 +68,9 @@ export const AppProvider = ({ children }) => {
   const [originalUrl, setOriginalUrl] = useState("");
   const [customizeUrl, setCustomizeUrl] = useState("");
   const [trimResult, setTrimResult] = useState("");
+
+  // Trimmed and Original Link States
+  const [urlArrays, setUrlArrays] = useState([]);
 
   /* Function to extract error message from the firebase returned message */
   const extratingErrorMsg = (error) => {
@@ -114,6 +122,9 @@ export const AppProvider = ({ children }) => {
         signInWithEmailAndPassword,
         auth,
         signOut,
+        addDoc,
+        colRef,
+        onSnapshot,
         isSuccess,
         setIsSuccess,
         isFailure,
@@ -134,6 +145,8 @@ export const AppProvider = ({ children }) => {
         setCustomizeUrl,
         trimResult,
         setTrimResult,
+        urlArrays,
+        setUrlArrays,
       }}
     >
       {children}

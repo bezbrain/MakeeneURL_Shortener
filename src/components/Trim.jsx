@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context";
 import { useNavigate } from "react-router-dom";
 import "../styles/trim.css";
@@ -13,6 +13,11 @@ const Trim = () => {
     setCustomizeUrl,
     trimResult,
     setTrimResult,
+    addDoc,
+    colRef,
+    onSnapshot,
+    urlArrays,
+    setUrlArrays,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -52,8 +57,7 @@ const Trim = () => {
         return;
       }
       if (trimType.TrimType === "Trim") {
-        console.log(trimURLFunc());
-        setTrimResult(trimURLFunc());
+        trimURLFunc();
         return;
       }
       console.log("Write code to input customized or trimmed URL here");
@@ -63,21 +67,81 @@ const Trim = () => {
     }
   };
 
+  /* ================== */
   // Function to Trim URL
-  const trimURLFunc = () => {
-    let newOriginalUrl;
+  const trimURLFunc = async () => {
+    let trimOriginalUrl;
     if (originalUrl.length <= 100) {
-      newOriginalUrl = originalUrl.slice(0, 30);
-      return newOriginalUrl;
+      trimOriginalUrl = originalUrl.slice(0, 30);
+      await addDoc(colRef, {
+        original: originalUrl,
+        short: trimOriginalUrl,
+      });
+      setTrimResult(trimOriginalUrl);
+    } else {
+      trimOriginalUrl = originalUrl.slice(0, 40);
+      await addDoc(colRef, {
+        original: originalUrl,
+        short: trimOriginalUrl,
+      });
+      setTrimResult(trimOriginalUrl);
     }
-    newOriginalUrl = originalUrl.slice(0, 40);
-    return newOriginalUrl;
   };
 
+  /* ================== */
+  // Retrieve Data from db
+  const getData = async () => {
+    onSnapshot(colRef, (snapshot) => {
+      const urlData = snapshot.docs.map((each) => {
+        return {
+          ...each.data(),
+          id: each.id,
+        };
+      });
+      console.log(urlData);
+      setUrlArrays(urlData);
+      if (urlArrays) {
+        window.location.href = urlArrays[0].original;
+      } else {
+        console.log("Redirection not found");
+      }
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, [trimResult]);
+
+  /* ====================== */
   // Function to Customize URL
   const customizeURLFunc = () => {
     //
   };
+
+  // // Assuming you have initialized Firebase and obtained a reference to the database
+  // var database = firebase.database();
+
+  // // Function to store the link mapping
+  // function storeLinkMapping(inputLink, redirectionLink) {
+  //   var linkMappingsRef = database.ref("linkMappings");
+  //   linkMappingsRef.child(inputLink).set(redirectionLink);
+  // }
+
+  // // Assuming you have initialized Firebase and obtained a reference to the database
+  // var database = firebase.database();
+
+  // // Function to handle link redirection
+  // function redirectToRedirectionLink(inputLink) {
+  //   var linkMappingsRef = database.ref("linkMappings");
+  //   linkMappingsRef.child(inputLink).once("value", function (snapshot) {
+  //     var redirectionLink = snapshot.val();
+  //     if (redirectionLink) {
+  //       window.location.href = redirectionLink;
+  //     } else {
+  //       // Handle case when redirection link is not found
+  //     }
+  //   });
+  // }
 
   return (
     <main className="trim" id="get-url">
