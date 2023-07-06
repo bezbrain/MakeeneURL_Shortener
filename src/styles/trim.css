@@ -83,3 +83,7 @@
     font-size: 12px;
   }
 }
+
+.trim form > p span {
+  font-weight: 700;
+}
