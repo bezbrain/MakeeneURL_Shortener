@@ -41,9 +41,6 @@ const Login = () => {
         localStorage.setItem("authToken", userToken);
 
         setIsSuccess(true);
-        setTimeout(() => {
-          setShowRegLogin(false); //Go to login form
-        }, 3000);
         setEmail("");
         setPassword("");
         setTimeout(() => {

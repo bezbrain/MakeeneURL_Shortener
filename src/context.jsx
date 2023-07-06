@@ -58,6 +58,12 @@ export const AppProvider = ({ children }) => {
 
   const [checkIfUserIsLoggedIn, setCheckIfUserIsLoggedIn] = useState("");
 
+  // TrimType States
+  const [trimType, setTrimType] = useState({});
+  const [originalUrl, setOriginalUrl] = useState("");
+  const [customizeUrl, setCustomizeUrl] = useState("");
+  const [trimResult, setTrimResult] = useState("");
+
   /* Function to extract error message from the firebase returned message */
   const extratingErrorMsg = (error) => {
     const startIndex = error.indexOf("/") + 1;
@@ -72,11 +78,11 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setCheckIfUserIsLoggedIn(user);
+        // setCheckIfUserIsLoggedIn(user);
         // console.log(user);
         setIsLogged("Logout");
       } else {
-        setCheckIfUserIsLoggedIn("");
+        // setCheckIfUserIsLoggedIn("");
         setIsLogged("Log in");
       }
     });
@@ -118,8 +124,16 @@ export const AppProvider = ({ children }) => {
         setIsLogged,
         extratingErrorMsg,
         loginLogoutContentRef,
-        checkIfUserIsLoggedIn,
-        setCheckIfUserIsLoggedIn,
+        // checkIfUserIsLoggedIn,
+        // setCheckIfUserIsLoggedIn,
+        trimType,
+        setTrimType,
+        originalUrl,
+        setOriginalUrl,
+        customizeUrl,
+        setCustomizeUrl,
+        trimResult,
+        setTrimResult,
       }}
     >
       {children}

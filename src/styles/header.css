@@ -215,3 +215,13 @@ nav ul li button a {
     right: 0 !important;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .top-header nav {
+    transform-origin: bottom right; /* Reversing Unique Nav bar */
+    transform: skewY(0deg); /* Reversing Unique Nav bar */
+  }
+  .add-nav-css {
+    transform: skewY(0deg) !important; /* Reversing Unique Nav bar */
+  }
+}
