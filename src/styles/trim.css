@@ -44,29 +44,6 @@
   color: var(--blueFamily);
 }
 
-.change-act {
-  margin-top: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.change-act select,
-.change-act input {
-  color: var(--blueFamily);
-  width: 48%;
-  height: 40px;
-  border-radius: 5px;
-  padding-left: 5px;
-  border: 1px solid var(--blueFamily);
-}
-.change-act input:focus,
-.change-act select:focus {
-  outline: 2px solid var(--blueFamily);
-}
-.change-act input::placeholder {
-  color: var(--blueFamily);
-}
-
 .trim button {
   width: 100%;
   padding-block: 10px;
@@ -79,6 +56,15 @@
 }
 .trim button:hover {
   opacity: 0.8;
+}
+.add-button-css {
+  box-shadow: 0px 0px 28px 12px #a4b5e4;
+  animation: btnShadow ease-in-out 0.5s infinite;
+}
+@keyframes btnShadow {
+  0% {
+    box-shadow: 0px 0px 0px 0px #a4b5e4;
+  }
 }
 
 .trim form > p:last-child {

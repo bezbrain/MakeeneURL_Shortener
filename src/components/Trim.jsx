@@ -18,6 +18,9 @@ const Trim = () => {
     setUrlObj,
   } = useGlobalContext();
 
+  const genLinkBtnRef = useRef(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+
   const getToken = localStorage.getItem("authToken"); // Get the auth token from local storge
 
   const handleGenerateLink = async (e) => {
@@ -26,14 +29,15 @@ const Trim = () => {
     if (getToken) {
       if (!originalLink) {
         // console.log("Pls enter original URL");
-        setTrimcompErrorMsg("Pls enter original Link");
+        setTrimcompErrorMsg("Please enter original Link");
         setTimeout(() => {
           setTrimcompErrorMsg("");
         }, 3000);
         return;
       }
       try {
-        setTrimcompErrorMsg("Generating Link...");
+        setIsGenerating(true);
+        genLinkBtnRef.current.textContent = "Generating Link...";
         const userIdAndOriginalLink = {
           createdBy: loginUserId,
           originalLink: originalLink,
@@ -45,7 +49,11 @@ const Trim = () => {
         console.log(data.link.fullLink);
         setGeneratedResult(data.link.fullLink);
         setOriginalLink("");
-        setTrimcompErrorMsg("");
+        genLinkBtnRef.current.textContent = "Link Generated";
+        setIsGenerating(false);
+        setTimeout(() => {
+          genLinkBtnRef.current.textContent = "Generate Link";
+        }, 2000);
       } catch (error) {
         console.log(error.message);
       }
@@ -68,7 +76,13 @@ const Trim = () => {
           value={originalLink}
           onChange={(e) => setOriginalLink(e.target.value)}
         />
-        <button onClick={handleGenerateLink}>Generate Link</button>
+        <button
+          onClick={handleGenerateLink}
+          ref={genLinkBtnRef}
+          className={`${isGenerating ? "add-button-css" : ""}`}
+        >
+          Generate Link
+        </button>
         <br />
         <input
           type="text"
