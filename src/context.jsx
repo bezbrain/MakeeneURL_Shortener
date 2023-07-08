@@ -15,6 +15,11 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
+// {
+//           createdby:
+//     originalLink:
+//         }
+
 const AppContext = React.createContext();
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -55,7 +60,7 @@ export const AppProvider = ({ children }) => {
   // Failure Message
   const [isFailure, setIsFailure] = useState(false);
 
-  // "Log in" nav item to Change to "Logout" if Logged in
+  // "Log in" nav item to Change to "Logout" if Logged in and vice versa
   const [isLogged, setIsLogged] = useState("Log in");
 
   // Ref to access login or logout textContent
@@ -64,10 +69,8 @@ export const AppProvider = ({ children }) => {
   const [checkIfUserIsLoggedIn, setCheckIfUserIsLoggedIn] = useState("");
 
   // TrimType States
-  const [trimType, setTrimType] = useState({});
-  const [originalUrl, setOriginalUrl] = useState("");
-  const [customizeUrl, setCustomizeUrl] = useState("");
-  const [trimResult, setTrimResult] = useState("");
+  const [originalLink, setOriginalLink] = useState("");
+  const [generatedResult, setGeneratedResult] = useState("");
 
   // Trimmed and Original Link States
   const [urlArrays, setUrlArrays] = useState([]);
@@ -83,6 +86,8 @@ export const AppProvider = ({ children }) => {
     return capitalizedError;
   };
 
+  /* ================ */
+  // Access the user to login or logout
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -137,14 +142,10 @@ export const AppProvider = ({ children }) => {
         loginLogoutContentRef,
         // checkIfUserIsLoggedIn,
         // setCheckIfUserIsLoggedIn,
-        trimType,
-        setTrimType,
-        originalUrl,
-        setOriginalUrl,
-        customizeUrl,
-        setCustomizeUrl,
-        trimResult,
-        setTrimResult,
+        originalLink,
+        setOriginalLink,
+        generatedResult,
+        setGeneratedResult,
         urlArrays,
         setUrlArrays,
       }}

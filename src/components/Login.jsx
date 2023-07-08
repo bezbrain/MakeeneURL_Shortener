@@ -33,12 +33,12 @@ const Login = () => {
       }, 3000);
     } else {
       try {
-        await signInWithEmailAndPassword(auth, email, password);
+        const cred = await signInWithEmailAndPassword(auth, email, password);
 
-        // Store the authentication token in local storage
+        console.log(cred.user.uid);
+
         const userToken = await auth.currentUser.getIdToken();
-        // console.log(userToken);
-        localStorage.setItem("authToken", userToken);
+        localStorage.setItem("authToken", userToken); // Store the authentication token in local storage
 
         setIsSuccess(true);
         setEmail("");
