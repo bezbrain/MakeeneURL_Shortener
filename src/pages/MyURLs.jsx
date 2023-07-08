@@ -1,17 +1,20 @@
-import React from "react";
+import axios from "axios";
+import "../styles/myurl.css";
 
 const MyURLs = () => {
+  const handleAllUrls = async () => {
+    try {
+      const { data } = await axios("http://localhost:9000/api/v1/links");
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
-    <div>
-      <h2>My URLs</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iste
-        sunt, minus facilis eius quisquam placeat maiores distinctio ut odio
-        deleniti iusto, numquam tenetur! Odit officiis aliquam eos in soluta.
-        Expedita, laudantium quibusdam deserunt reiciendis, nisi quaerat minima
-        impedit praesentium quae facilis odit, possimus omnis nam repellendus!
-        Ab, minus cupiditate.
-      </p>
+    <div className="url-con">
+      <h2>All URLs Already Generated</h2>
+      <button onClick={handleAllUrls}>View All URLs</button>
     </div>
   );
 };

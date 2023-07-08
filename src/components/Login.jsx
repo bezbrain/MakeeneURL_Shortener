@@ -20,6 +20,7 @@ const Login = () => {
     setMsgFromServer,
     extratingErrorMsg,
     setIsLogged,
+    setLoginUserId,
   } = useGlobalContext();
 
   const handleLoginBtn = async (e) => {
@@ -35,7 +36,8 @@ const Login = () => {
       try {
         const cred = await signInWithEmailAndPassword(auth, email, password);
 
-        console.log(cred.user.uid);
+        // console.log(cred.user.uid);
+        setLoginUserId(cred.user.uid);
 
         const userToken = await auth.currentUser.getIdToken();
         localStorage.setItem("authToken", userToken); // Store the authentication token in local storage

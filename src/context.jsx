@@ -54,6 +54,7 @@ export const AppProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msgFromServer, setMsgFromServer] = useState("");
+  const [loginUserId, setLoginUserId] = useState(""); //Login User ID
 
   // Success Message
   const [isSuccess, setIsSuccess] = useState(false);
@@ -71,9 +72,15 @@ export const AppProvider = ({ children }) => {
   // TrimType States
   const [originalLink, setOriginalLink] = useState("");
   const [generatedResult, setGeneratedResult] = useState("");
+  const [trimcompErrorMsg, setTrimcompErrorMsg] = useState("");
 
-  // Trimmed and Original Link States
-  const [urlArrays, setUrlArrays] = useState([]);
+  // Original Link and Login ID States
+  const [urlObj, setUrlObj] = useState({
+    createdBy: "",
+    original: "",
+  });
+
+  const [generatingLinkLoading, setGeneratingLinkLoading] = useState("");
 
   /* Function to extract error message from the firebase returned message */
   const extratingErrorMsg = (error) => {
@@ -146,8 +153,12 @@ export const AppProvider = ({ children }) => {
         setOriginalLink,
         generatedResult,
         setGeneratedResult,
-        urlArrays,
-        setUrlArrays,
+        urlObj,
+        setUrlObj,
+        loginUserId,
+        setLoginUserId,
+        trimcompErrorMsg,
+        setTrimcompErrorMsg,
       }}
     >
       {children}

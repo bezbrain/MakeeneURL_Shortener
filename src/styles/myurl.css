@@ -1,0 +1,11 @@
+.url-con {
+  min-height: 80vh;
+  /* margin-top: 6rem; */
+  max-width: var(--sectionWidth);
+  margin: 6rem auto 3rem;
+  padding-inline: var(--sectionPadding);
+}
+
+.url-con h2 {
+  color: var(--blueFamily);
+}

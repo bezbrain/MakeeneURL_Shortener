@@ -13,9 +13,19 @@
   padding: 20px;
   background-color: #fff;
 }
+
+.trim form > p:first-child {
+  color: red;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 550px) {
   .trim form {
     width: 320px;
+  }
+  .trim form > p:first-child {
+    font-size: 14px;
   }
 }
 
@@ -71,7 +81,7 @@
   opacity: 0.8;
 }
 
-.trim form > p {
+.trim form > p:last-child {
   margin-top: 15px;
   font-size: 14px;
   line-height: 0.5cm;
@@ -79,7 +89,7 @@
   font-weight: 500;
 }
 @media screen and (max-width: 500px) {
-  .trim form > p {
+  .trim form > p:last-child {
     font-size: 12px;
   }
 }
