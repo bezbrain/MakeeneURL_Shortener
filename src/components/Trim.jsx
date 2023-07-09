@@ -79,7 +79,7 @@ const Trim = () => {
         ref={ref}
         initial={{ width: 0 }}
         animate={inView ? { width: "100%" } : { width: 0 }}
-        // transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
         exit={{ width: 0 }}
       >
         <main className="trim" id="get-url">
