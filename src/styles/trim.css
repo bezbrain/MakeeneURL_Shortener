@@ -44,7 +44,7 @@
   color: var(--blueFamily);
 }
 
-.trim button {
+.trim form > button {
   width: 100%;
   padding-block: 10px;
   border: none;
@@ -54,7 +54,7 @@
   border-radius: 20px;
   transition: ease 0.5s all;
 }
-.trim button:hover {
+.trim form > button:hover {
   opacity: 0.8;
 }
 .add-button-css {
@@ -67,6 +67,40 @@
   }
 }
 
+.short-llnk-and-copy-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.short-llnk-and-copy-btn input {
+  width: 80%;
+  height: 40px;
+  padding-left: 5px;
+  border-radius: 5px;
+  color: var(--blueFamily);
+  border: 1px solid var(--blueFamily);
+}
+.short-llnk-and-copy-btn input:focus {
+  outline: 2px solid var(--blueFamily);
+}
+.short-llnk-and-copy-btn input::placeholder {
+  color: var(--blueFamily);
+}
+
+.short-llnk-and-copy-btn button {
+  width: 19%;
+  height: 40px;
+  border: none;
+  background-color: var(--blueFamily);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: ease 0.5s all;
+}
+.short-llnk-and-copy-btn button:hover {
+  opacity: 0.8;
+}
+
 .trim form > p:last-child {
   margin-top: 15px;
   font-size: 14px;
@@ -77,6 +111,10 @@
 @media screen and (max-width: 500px) {
   .trim form > p:last-child {
     font-size: 12px;
+  }
+
+  .short-llnk-and-copy-btn button {
+    font-size: 14px;
   }
 }
 

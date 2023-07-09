@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { useGlobalContext } from "../context";
 import "../styles/trim.css";
 import axios from "axios";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 /* ================ */
 // The Trim Component
@@ -24,8 +25,12 @@ const Trim = () => {
     triggerOnce: true,
   });
 
-  const genLinkBtnRef = useRef(null);
+  const genLinkBtnRef = useRef(null); //Hook to access the text content of "Generate Link" btn
+
+  // State check if link is generating
   const [isGenerating, setIsGenerating] = useState(false);
+
+  const [copyBtnContent, setCopyBtnContent] = useState("Copy");
 
   const getToken = localStorage.getItem("authToken"); // Get the auth token from local storge
 
@@ -73,16 +78,25 @@ const Trim = () => {
     }
   };
 
+  const handleCopy = (e) => {
+    e.preventDefault();
+    console.log("I am copied");
+    setCopyBtnContent("Copied");
+    setTimeout(() => {
+      setCopyBtnContent("Copy");
+    }, 3000);
+  };
+
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial={{ width: 0 }}
-        animate={inView ? { width: "100%" } : { width: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        exit={{ width: 0 }}
-      >
-        <main className="trim" id="get-url">
+    <main className="trim" id="get-url">
+      <AnimatePresence>
+        <motion.div
+          ref={ref}
+          initial={{ width: 0 }}
+          animate={inView ? { width: "100%" } : { width: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          exit={{ width: 0 }}
+        >
           <form id="try-for-free">
             <p>{trimcompErrorMsg}</p>
             <input
@@ -99,20 +113,25 @@ const Trim = () => {
               Generate Link
             </button>
             <br />
-            <input
-              type="text"
-              placeholder="Get generated link here"
-              value={generatedResult}
-              onChange={(e) => setGeneratedResult(e.target.value)}
-            />
+            <div className="short-llnk-and-copy-btn">
+              <input
+                type="text"
+                placeholder="Get generated link here"
+                value={generatedResult}
+                onChange={(e) => setGeneratedResult(e.target.value)}
+              />
+              <CopyToClipboard text={generatedResult}>
+                <button onClick={handleCopy}>{copyBtnContent}</button>
+              </CopyToClipboard>
+            </div>
             <p>
               By clicking <span>Generate Link</span>, I agree with the Terms of
               Service, Privacy Policy and Use of Cookies
             </p>
           </form>
-        </main>
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+    </main>
   );
 };
 
