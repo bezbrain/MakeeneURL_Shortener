@@ -86,6 +86,9 @@ nav ul li {
 nav ul li:hover {
   border-bottom: 2px solid var(--blueFamily);
 }
+.add-current-page-indication {
+  border-bottom: 2px solid var(--blueFamily);
+}
 
 nav ul li a {
   text-decoration: none;

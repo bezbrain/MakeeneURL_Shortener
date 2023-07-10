@@ -45,6 +45,9 @@ export const AppProvider = ({ children }) => {
   const [toggleModal, setToggleModal] = useState(false);
   const [showRegLogin, setShowRegLogin] = useState(false);
 
+  // State to indicate the current page a user is on
+  const [currentPage, setCurrentPage] = useState("");
+
   // Register States
   const [regName, setRegName] = useState("");
   const [regEmail, setRegEmail] = useState("");
@@ -159,6 +162,8 @@ export const AppProvider = ({ children }) => {
         setLoginUserId,
         trimcompErrorMsg,
         setTrimcompErrorMsg,
+        currentPage,
+        setCurrentPage,
       }}
     >
       {children}

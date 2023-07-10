@@ -26,7 +26,21 @@ const HowItWorks = () => {
         <li>
           Copy the shortened URL: Once generated, you will see the shortened URL
           displayed in the input box below the "Generate Link" button. Simply
-          click the "Copy" button to quickly copy it to your clipboard.
+          click the "Copy" button to easily copy it to your clipboard.
+        </li>
+      </ol>
+      <h3>Availability of Previous Links Shortened:</h3>
+      <ol>
+        <li>
+          Access the previous links page: On our website, we offer a convenient
+          feature that allows you to access all your previously shortened links
+          in one place. To do this, navigate to the "My URLs" page from the
+          navigation bar..
+        </li>
+        <li>
+          Option to Delete Previous Link: Click the delect icon to delete links
+          you do not want in the storage any longer. Please note that if a link
+          is deleted, it can not be retrieved.
         </li>
       </ol>
     </main>

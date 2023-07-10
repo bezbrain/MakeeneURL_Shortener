@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 const LogoDesign = () => {
-  const { setToggleNav } = useGlobalContext();
+  const { setToggleNav, setCurrentPage } = useGlobalContext();
   const navigate = useNavigate();
 
   return (
@@ -12,6 +12,7 @@ const LogoDesign = () => {
       onClick={() => {
         navigate("/");
         setToggleNav(false);
+        setCurrentPage(""); // Set the state that indicates the current page back to empty
       }}
     >
       <div className="the-logo">

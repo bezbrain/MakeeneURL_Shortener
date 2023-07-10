@@ -4,3 +4,19 @@
   margin: 6rem auto 3rem;
   padding-inline: var(--sectionPadding);
 }
+
+.how-it-works ol {
+  /* border: 2px solid red; */
+  max-width: 700px;
+  margin: 2rem auto;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.how-it-works ol li {
+  margin-top: 20px;
+}
+
+.how-it-works > h3 {
+  margin-top: 3rem;
+}
