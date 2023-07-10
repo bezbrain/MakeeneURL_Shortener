@@ -36,16 +36,19 @@ const Header = () => {
       setShowRegLogin(false);
       setToggleNav(false);
       setToggleModal(true);
+      setCurrentPage(""); // Set the state that indicates the current page back to empty
     } else {
       await signOut(auth);
 
       // Clear the authentication token from local storage
       localStorage.removeItem("authToken");
+      setCurrentPage(""); // Set the state that indicates the current page back to empty
 
       setIsLogged("Log in");
     }
   };
 
+  // Indicate current page with border bottom
   const handleCurrentPageIndicator = (e) => {
     const clickedText = e.target.textContent;
     const linkArr = [...linkContentRef.current.children];
@@ -131,6 +134,7 @@ const Header = () => {
               onClick={() => {
                 navigate("/");
                 setToggleNav(false);
+                setCurrentPage("");
               }}
             >
               <a href="#try-for-free">Try for free</a>

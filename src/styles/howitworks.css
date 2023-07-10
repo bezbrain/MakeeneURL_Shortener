@@ -5,6 +5,10 @@
   padding-inline: var(--sectionPadding);
 }
 
+.how-it-works h2 {
+  color: var(--blueFamily);
+}
+
 .how-it-works ol {
   /* border: 2px solid red; */
   max-width: 700px;
@@ -19,4 +23,5 @@
 
 .how-it-works > h3 {
   margin-top: 3rem;
+  color: var(--blueFamily);
 }

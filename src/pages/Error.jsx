@@ -1,18 +1,17 @@
-import React from "react";
+import "../styles/error.css";
+import { Link } from "react-router-dom";
 
 const Error = () => {
   return (
-    <div>
-      <h2>Error Page</h2>
+    <main className="error">
+      <img src="../../Images/Error_Img.jpeg" alt="Error" />
+      <h2>404 - PAGE NOT FOUND</h2>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-        laudantium numquam eius nulla vel, praesentium officiis obcaecati sequi,
-        placeat ipsa dolor est. Eveniet voluptatem, iusto esse et temporibus
-        voluptate animi omnis! Velit, mollitia atque suscipit eveniet
-        perferendis distinctio eos excepturi!
+        This page you are looking for might have been removed, had its name
+        changed or temporarily unavailable
       </p>
-      <h2>Error Page</h2>
-    </div>
+      <Link to="/">GO TO HOMEPAGE</Link>
+    </main>
   );
 };
 

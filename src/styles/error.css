@@ -1,0 +1,34 @@
+.error {
+  min-height: 70vh;
+  max-width: var(--sectionWidth);
+  margin: 5rem auto;
+  padding-inline: var(--sectionPadding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error h2 {
+  color: rgb(206, 35, 35);
+}
+
+.error p {
+  font-weight: 700;
+  max-width: 500px;
+  text-align: center;
+  color: rgb(206, 35, 35);
+}
+
+.error a {
+  text-decoration: none;
+  background-color: var(--blueFamily);
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.error a:hover {
+  opacity: 0.8;
+}
