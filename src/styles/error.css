@@ -1,7 +1,7 @@
 .error {
   min-height: 70vh;
   max-width: var(--sectionWidth);
-  margin: 5rem auto;
+  margin: 0rem auto;
   padding-inline: var(--sectionPadding);
   display: flex;
   flex-direction: column;
@@ -34,6 +34,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  .error {
+    /* min-height: 70vh; */
+  }
   .error img {
     width: 250px;
   }
