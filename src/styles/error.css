@@ -32,3 +32,18 @@
 .error a:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 500px) {
+  .error img {
+    width: 250px;
+  }
+  .error h2 {
+    font-size: 20px;
+  }
+  .error p {
+    font-size: 15px;
+  }
+  .error a {
+    font-size: 12px;
+  }
+}
