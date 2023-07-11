@@ -3,6 +3,7 @@
   max-width: var(--sectionWidth);
   margin: 6rem auto 3rem;
   padding-inline: var(--sectionPadding);
+  color: var(--blueFamily);
 }
 
 .how-it-works h2 {

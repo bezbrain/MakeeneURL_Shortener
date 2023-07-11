@@ -17,6 +17,7 @@ const Trim = () => {
     loginUserId,
     trimcompErrorMsg,
     setTrimcompErrorMsg,
+    getToken,
   } = useGlobalContext();
 
   const [ref, inView] = useInView({
@@ -29,8 +30,6 @@ const Trim = () => {
   const [isGenerating, setIsGenerating] = useState(false);
 
   const [copyBtnContent, setCopyBtnContent] = useState("Copy");
-
-  const getToken = localStorage.getItem("authToken"); // Get the auth token from local storge
 
   const handleGenerateLink = async (e) => {
     e.preventDefault();

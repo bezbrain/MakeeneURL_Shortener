@@ -36,7 +36,6 @@ const Header = () => {
       setShowRegLogin(false);
       setToggleNav(false);
       setToggleModal(true);
-      setCurrentPage(""); // Set the state that indicates the current page back to empty
     } else {
       await signOut(auth);
 

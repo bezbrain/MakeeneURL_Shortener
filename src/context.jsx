@@ -59,6 +59,8 @@ export const AppProvider = ({ children }) => {
   const [msgFromServer, setMsgFromServer] = useState("");
   const [loginUserId, setLoginUserId] = useState(""); //Login User ID
 
+  const getToken = localStorage.getItem("authToken"); // Get the auth token from local storge
+
   // Success Message
   const [isSuccess, setIsSuccess] = useState(false);
   // Failure Message
@@ -143,6 +145,7 @@ export const AppProvider = ({ children }) => {
         setIsFailure,
         msgFromServer,
         setMsgFromServer,
+        getToken,
         isLogged,
         setIsLogged,
         extratingErrorMsg,
