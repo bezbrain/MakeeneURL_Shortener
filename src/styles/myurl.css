@@ -8,4 +8,42 @@
 
 .url-con h2 {
   color: var(--blueFamily);
+  text-transform: uppercase;
+}
+
+.url-con button {
+  border: none;
+  background-color: var(--blueFamily);
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  transition: ease 0.5s all;
+}
+.url-con button:hover {
+  opacity: 0.8;
+}
+
+.table-con {
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.table-con table {
+  border: 2px solid var(--blueFamily);
+  width: 100%;
+  text-align: center;
+  color: var(--blueFamily);
+  font-weight: 500;
+}
+
+.table-con table td,
+.table-con table th {
+  border: 2px solid var(--blueFamily);
+  height: 50px;
+}
+
+@media screen and (max-width: 755px) {
+  .table-con {
+    overflow-x: scroll;
+  }
 }

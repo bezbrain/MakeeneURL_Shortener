@@ -78,10 +78,7 @@ export const AppProvider = ({ children }) => {
   const [trimcompErrorMsg, setTrimcompErrorMsg] = useState("");
 
   // Original Link and Login ID States
-  const [urlObj, setUrlObj] = useState({
-    createdBy: "",
-    original: "",
-  });
+  const [urlArr, setUrlArr] = useState([]);
 
   const [generatingLinkLoading, setGeneratingLinkLoading] = useState("");
 
@@ -156,8 +153,8 @@ export const AppProvider = ({ children }) => {
         setOriginalLink,
         generatedResult,
         setGeneratedResult,
-        urlObj,
-        setUrlObj,
+        urlArr,
+        setUrlArr,
         loginUserId,
         setLoginUserId,
         trimcompErrorMsg,

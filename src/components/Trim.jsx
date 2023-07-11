@@ -17,8 +17,6 @@ const Trim = () => {
     loginUserId,
     trimcompErrorMsg,
     setTrimcompErrorMsg,
-    urlObj,
-    setUrlObj,
   } = useGlobalContext();
 
   const [ref, inView] = useInView({
@@ -80,7 +78,6 @@ const Trim = () => {
 
   const handleCopy = (e) => {
     e.preventDefault();
-    console.log("I am copied");
     setCopyBtnContent("Copied");
     setTimeout(() => {
       setCopyBtnContent("Copy");
