@@ -22,6 +22,8 @@ const Header = () => {
     setIsLogged,
     currentPage,
     setCurrentPage,
+    urlArr,
+    setUrlArr,
   } = useGlobalContext();
   const navigate = useNavigate();
 
@@ -38,11 +40,10 @@ const Header = () => {
       setToggleModal(true);
     } else {
       await signOut(auth);
-
       // Clear the authentication token from local storage
       localStorage.removeItem("authToken");
       setCurrentPage(""); // Set the state that indicates the current page back to empty
-
+      setUrlArr([]);
       setIsLogged("Log in");
     }
   };
