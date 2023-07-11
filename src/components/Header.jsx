@@ -22,7 +22,6 @@ const Header = () => {
     setIsLogged,
     currentPage,
     setCurrentPage,
-    urlArr,
     setUrlArr,
   } = useGlobalContext();
   const navigate = useNavigate();
