@@ -12,7 +12,9 @@ const MyURLs = () => {
   const handleAllUrls = async () => {
     if (getToken) {
       try {
-        const { data } = await axios("http://localhost:9000/api/v1/links");
+        const { data } = await axios(
+          "https://mak-k2vs.onrender.com/api/v1/links"
+        );
         setUrlArr(data.links);
       } catch (error) {
         console.log(error.message);

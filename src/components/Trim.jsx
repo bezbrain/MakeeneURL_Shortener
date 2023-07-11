@@ -52,7 +52,7 @@ const Trim = () => {
           originalLink: originalLink,
         };
         const { data } = await axios.post(
-          "http://localhost:9000/",
+          "https://mak-k2vs.onrender.com/",
           userIdAndOriginalLink
         );
         console.log(data.link.fullLink);
